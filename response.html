@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Fraud Detection</title>
+</head>
+<body>
+    <h2>Enter Job Details</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Title:</label><br>
+        <input type="text" name="title"><br><br>
+
+        <label>Location:</label><br>
+        <input type="text" name="location"><br><br>
+
+        <label>Description:</label><br>
+        <textarea name="description"></textarea><br><br>
+
+        <label>Requirements:</label><br>
+        <textarea name="requirements"></textarea><br><br>
+
+        <label>Telecommuting (0 or 1):</label><br>
+        <input type="number" name="telecommuting" min="0" max="1"><br><br>
+
+        <label>Has Company Logo (0 or 1):</label><br>
+        <input type="number" name="has_company_logo" min="0" max="1"><br><br>
+
+        <label>Has Questions (0 or 1):</label><br>
+        <input type="number" name="has_questions" min="0" max="1"><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
